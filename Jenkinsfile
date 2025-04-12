@@ -21,14 +21,16 @@
             stage('Manual Approval') {
                 steps {
                     echo 'info: approval'
+                    sh './jenkins/scripts/kill.sh'
                     input message: 'Lanjutkan ke tahap Deploy? (Klik "Proceed" untuk deploy)'
                 }
             }
             stage('Deploy') {
                 steps {
                     echo 'info: deploy'
-                    sh './jenkins/scripts/test.sh'
+                    sh './jenkins/scripts/deliver.sh'
                     sleep 60
+                    sh './jenkins/scripts/kill.sh'
                 }
             }
         }
