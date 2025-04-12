@@ -16,5 +16,11 @@
                     sh './jenkins/scripts/test.sh'
                 }
             }
+            stage('Deploy') {
+                steps {
+                    sh './jenkins/scripts/test.sh'
+                    sleep 5
+                }
+            }
         }
     }
